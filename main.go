@@ -76,7 +76,7 @@ func processReceipt(w http.ResponseWriter, r *http.Request) {
 
 func getPoints(w http.ResponseWriter, r *http.Request) {
 	//Getting the ID from the given path and confirming it is in the store to confirm it is valie
-	id := r.URL.Path[len("/receipts/"):]
+	id := r.URL.Path[len("/receipts/") : len(r.URL.Path)-7]
 	receipt, found := receiptStore[id]
 	if !found {
 		http.Error(w, "No receipt found for that id", http.StatusBadRequest)
