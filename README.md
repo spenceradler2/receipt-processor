@@ -4,9 +4,9 @@
 
 This is a GO-based API that lets you process receipts and see how many points that receipt is worth based on a point system decribed by the readme in the https://github.com/fetch-rewards/receipt-processor-challenge/blob/main/README.md
 
-The endpoints are /receipts/process and /receipts/{id}.
+The endpoints are /receipts/process and /receipts/{id}/points.
 - The /receipts/process endpoint is POST that processes the receipt and calculates the points. 
-- The /receipts/{id} endpointis a GET that gets the points for the receipt with that id. 
+- The /receipts/{id}/points endpoint is a GET that gets the points for the receipt with that id. 
 
 ## Requirements
 
