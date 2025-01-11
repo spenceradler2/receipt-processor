@@ -1,0 +1,26 @@
+# Step 1: Use an official Python runtime as the base image
+FROM python:3.9-slim
+
+# Step 2: Set the working directory in the container
+WORKDIR /app
+
+# Step 3: Copy the current directory contents into the container
+COPY . /app
+
+# Step 4: Install the dependencies from requirements.txt
+RUN pip instaWll --no-cache-dir -r requirements.txt
+
+# Step 5: Expose the port that Flask will run on
+EXPOSE 8080
+
+# Step 6: Run the unit tests (optional, but this runs them at build time)
+# Note: You can also skip this part if you want to run the tests manually after the image is built
+RUN python -m unittest discover -s tests
+
+# Step 7: Define the command to run your Flask app
+CMD ["python", "python_with_flask/app.py"]
+
+
+# Believe I just needed a dockerfile from the Readme but if I needed a docker image and container I would run the below commands
+# docker build -t my-flask-app .
+# docker run -p 8080:8080 my-flask-app

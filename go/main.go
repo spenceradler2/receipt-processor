@@ -53,7 +53,7 @@ func processReceipt(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "The receipt is invalid", http.StatusBadRequest)
 		return
 	}
-	//Vakidations for receipt requirements listed in API
+	//Validations for receipt requirements listed in API
 	if err := validateReceipt(receipt); err != nil {
 		http.Error(w, "The receipt is invalid", http.StatusBadRequest)
 		return
@@ -75,7 +75,7 @@ func processReceipt(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPoints(w http.ResponseWriter, r *http.Request) {
-	//Getting the ID from the given path and confirming it is in the store to confirm it is valie
+	//Getting the ID from the given path and confirming it is in the store to confirm it is valid
 	id := r.URL.Path[len("/receipts/") : len(r.URL.Path)-7]
 	receipt, found := receiptStore[id]
 	if !found {
